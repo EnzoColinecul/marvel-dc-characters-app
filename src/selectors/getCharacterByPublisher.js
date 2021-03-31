@@ -1,7 +1,4 @@
-
 export const getCharacterByPublisher = (publisher, fullData) => {
-
-
   const validPublisher = ['Marvel Comics', 'DC Comics']
 
   if (!validPublisher.includes(publisher)) {

@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AuthContext from '../../auth/AuthContext'
+import { types } from '../../types/types'
 
 const LoginScreen = ({ history }) => {
-  const handleLogin = () => {
+  const {dispatch} = useContext(AuthContext)
+
+  const handleLogin = (e) => {
+    e.preventDefault()
+    dispatch({
+      type: types.login,
+      payload: {
+        name: 'Enzo'
+      },
+    })
+
     history.replace('/')
+    
   }
 
   return (
@@ -40,7 +53,7 @@ const LoginScreen = ({ history }) => {
               onClick={handleLogin}
             >
               Login
-                </button>
+            </button>
 
             {/*       <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
               <a href="forgot-password" className="flex-2 underline">

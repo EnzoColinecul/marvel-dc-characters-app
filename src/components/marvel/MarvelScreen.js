@@ -5,7 +5,7 @@ const MarvelScreen = () => {
   return (
     <div>
       <div className='font-extrabold text-xl text-center'>
-        <h5>Marvel Comics</h5>
+        <h1 className="uppercase">Marvel Comics</h1>
       </div>
       <CharacterList publisher='Marvel Comics' />
     </div>

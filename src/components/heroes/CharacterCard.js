@@ -12,9 +12,9 @@ const HeroCard = ({
 }) => {
   return (
 
-    <div className="my-1 px-1 w-full md:w-1/2 lg:px-16 lg:w-1/3">
+    <div className="my-1 px-10 w-full sm:w-1/2 md:w-1/2 lg:px-10 lg:w-1/4">
 
-      <article className="overflow-hidden rounded-lg shadow-lg">
+      <article className="overflow-hidden rounded-lg shadow-lg bg-white">
 
         <Link to={`/character/${id}`}>
           <img alt={name} className="block h-auto w-full" src={image} />
@@ -52,4 +52,4 @@ const HeroCard = ({
   )
 }
 
-export default HeroCard
+export default React.memo(HeroCard)
