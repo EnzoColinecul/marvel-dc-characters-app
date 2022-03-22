@@ -52,7 +52,7 @@ const LoginScreen = ({ history }) => {
                     focus:outline-none hover:bg-gray-700 hover:shadow-none"
               onClick={handleLogin}
             >
-              Login
+              Enter
             </button>
 
             {/*       <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">

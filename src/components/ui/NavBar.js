@@ -1,9 +1,23 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { NavLink, Link, useHistory } from 'react-router-dom'
+import AuthContext from '../../auth/AuthContext'
 import Logo from '../../assets/images/mdc.png'
+import { types } from '../../types/types'
 
 const NavBar = () => {
+  const {user, dispatch} = useContext(AuthContext)
+  const history = useHistory()
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    history.replace('/login')
+    dispatch({
+      type: types.logout,
+    })
+  }
+
   return (
+    <>
     <div className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -36,11 +50,14 @@ const NavBar = () => {
           </nav>
           <div className="hidden md:flex items-center justify-end  lg:w-18">
             <span className=' text-blue-600 font-extrabold opacity-80'>
-              Enzo
+              {user.name}
             </span>
-            <NavLink exact to='/login' className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-red-700 via-red-600 to-blue-600 transform hover:scale-110 hover:text-gray-200">
+            <button
+            onClick={handleLogout}  
+            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-red-700 via-red-600 to-blue-600 transform hover:scale-110 hover:text-gray-200"
+            >
               Logout
-            </NavLink>
+            </button>
           </div>
         </div>
       </div>
@@ -87,6 +104,7 @@ const NavBar = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
 export const getCharacterById = (id, fullData) => {
 
-  return fullData.find(hero => hero.id === id)
+  return fullData.find(character => character.id === id)
 }

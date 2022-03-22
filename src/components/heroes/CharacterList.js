@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, {useContext, useEffect, useMemo, useState } from 'react'
 import useCounter from '../../hook/useCounter'
 import useFetch from '../../hook/useFetch'
 import { getCharacterByPublisher } from '../../selectors/getCharacterByPublisher'
@@ -18,7 +18,8 @@ const CharacterList = ({ publisher }) => {
     if (data !== null) {
       setfullData([...fullData, data])
     }
-  }, [data])
+    console.log(data);
+  }, [fullData])
 
   useEffect(() => {
     if (counter <= maxLoad) {
@@ -27,8 +28,7 @@ const CharacterList = ({ publisher }) => {
     console.log(counter);
   }, [data, maxLoad])
   
-
-  const hero = getCharacterByPublisher(publisher, fullData)
+  const character = useMemo(() => getCharacterByPublisher(publisher, fullData), [publisher]) 
 
   return (
     <div>
@@ -39,15 +39,15 @@ const CharacterList = ({ publisher }) => {
               <img className="animate-spin w-16 items-center content-center opacity-10" src={Loading} />
             </div>
             ) :
-            hero.map(hero => (
+            character.map(character => (
               <CharacterCard
-                key={hero.id}
-                id={hero.id}
-                name={hero.name}
-                image={hero.image.url}
-                alignment={hero.biography.alignment}
-                gender={hero.appearance.gender}
-                race={hero.appearance.race}
+                key={character.id}
+                id={character.id}
+                name={character.name}
+                image={character.image.url}
+                alignment={character.biography.alignment}
+                gender={character.appearance.gender}
+                race={character.appearance.race}
               />
             ))}
         </div>

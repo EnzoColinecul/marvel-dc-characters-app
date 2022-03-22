@@ -9,13 +9,12 @@ import NavBar from '../components/ui/NavBar'
 const DashbordRouter = () => {
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <div className='p-4'>
         <Switch>
           <Route exact path='/marvel' component={MarvelScreen} />
           <Route exact path='/character/:characterId' component={CharacterScreen} />
           <Route exact path='/dc' component={DcScreen} />
-
           <Redirect to='/marvel' />
         </Switch>
       </div>

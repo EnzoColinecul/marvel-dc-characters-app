@@ -12,7 +12,7 @@ const HeroCard = ({
 }) => {
   return (
 
-    <div className="my-1 px-10 w-full sm:w-1/2 md:w-1/2 lg:px-10 lg:w-1/4">
+    <div className="my-1 px-10 w-full sm:w-1/2 md:w-1/2 lg:px-8 lg:w-72 hover:opacity-75 ">
 
       <article className="overflow-hidden rounded-lg shadow-lg bg-white">
 

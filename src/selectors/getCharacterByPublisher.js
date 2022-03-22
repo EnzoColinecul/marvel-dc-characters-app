@@ -5,6 +5,6 @@ export const getCharacterByPublisher = (publisher, fullData) => {
     throw new Error(`Publisher ${publisher} no es correcto`)
   }
 
-  return fullData.filter(hero => hero.biography.publisher === publisher)
+  return fullData.filter(character => character.biography.publisher === publisher)
 
 }
